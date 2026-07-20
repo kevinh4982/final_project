@@ -1,7 +1,7 @@
 -- nom base de données: itu  
 
-CREATE TABLE menbre (    
-    id_menbre INT PRIMARY KEY,
+CREATE TABLE membre (    
+    id_membre INT PRIMARY KEY ,
     nom VARCHAR(100),
     numero_itu INT ,
     image_profil VARCHAR(255)
@@ -18,11 +18,11 @@ CREATE TABLE produit (
     id_categorie INT 
 );
 
-CREATE TABLE produit_menbre (
-    id_produit_menbre INT PRIMARY KEY,
+CREATE TABLE produit_membre (
+    id_produit_membre INT PRIMARY KEY,
     id_produit INT,
-    id_menbre INT,
-    prix_vente INT
+    id_membre INT,
+    prix_vente INT,
     quantite_dispo INT,
     date_dispo DATE
 );
@@ -30,13 +30,13 @@ CREATE TABLE produit_menbre (
 CREATE TABLE vente (
     id_vente INT PRIMARY KEY,
     date_vente DATE,
-    heure DATETIME,
-    id_produit_menbre INT,
+    heure TIME,
+    id_produit_membre INT,
     quantite INT 
 );
 
 
-INSERT INTO menbre (id_menbre, nom, numero_itu, image_profil) VALUES
+INSERT INTO membre (id_membre, nom, numero_itu, image_profil) VALUES
 (1, 'John Doe', 4700, NULL),
 (2, 'Jane Smith', 4701, NULL),
 (3, 'Alice Johnson', 4702, NULL),
@@ -71,7 +71,7 @@ INSERT INTO produit (id_produit, nom, id_categorie) VALUES
 (14, 'Fruit Salad', 4),
 (15, 'Sandwich', 1);
 
-INSERT INTO produit_menbre (id_produit_menbre, id_produit, id_menbre, prix_vente, quantite_dispo, date_dispo) VALUES
+INSERT INTO produit_membre (id_produit_membre, id_produit, id_membre, prix_vente, quantite_dispo, date_dispo) VALUES
 (1, 1, 1, 10, 50, '2026-06-01'),
 (2, 2, 2, 8, 30, '2026-06-02'),
 (3, 3, 3, 5, 20, '2026-06-03'),
@@ -83,7 +83,7 @@ INSERT INTO produit_menbre (id_produit_menbre, id_produit, id_menbre, prix_vente
 (9, 9, 9, 5.5, 45, '2026-06-09'),
 (10, 10, 10, 7.5, 20, '2026-06-10');
 
-INSERT INTO vente (id_vente, date_vente, heure, id_produit_menbre, quantite) VALUES
+INSERT INTO vente (id_vente, date_vente, heure, id_produit_membre, quantite) VALUES
 (1, '2026-06-01', '10:00:00', 1, 2),
 (2, '2026-06-02', '11:30:00', 2, 1),
 (3, '2026-06-03', '12:15:00', 3, 3),
