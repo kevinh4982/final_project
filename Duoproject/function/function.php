@@ -35,4 +35,12 @@ function sign_up_etu($etu,$name){
     return $sql;
 }
 
+function show_all_product(){
+    $sql = 'select * from produit_membre join produit on produit_menbre.id_produit = produit.id_produit';
+
+    return get_all_lines($sql);
+}
+
+
+
 ?>
